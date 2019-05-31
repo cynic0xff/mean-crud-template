@@ -19,6 +19,15 @@ export class ApiService {
 
   }
 
+  //get all products
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(apiGetUrl)
+    .pipe(
+      tap(heroes => console.log('Fetched products')),
+      catchError(this.handleError('getProducts', []))
+    );
+  }
+
   //error handler
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
