@@ -23,9 +23,12 @@ export class ProductsComponent implements OnInit {
       //debug
       console.log(this.data);
       this.isLoading = false;
+
     }, err => {
+      
       console.error(err);
       this.isLoading = false;
+    
     });
   }
 }
