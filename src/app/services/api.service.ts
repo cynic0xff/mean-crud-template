@@ -28,6 +28,15 @@ export class ApiService {
     );
   }
 
+  //get product with id
+  getProduct(id: number): Observable<Product> {
+    const url = `${apiGetUrl}/${id}`;
+    return this.http.get<Product>(url).pipe(
+      tap(_ => console.log(`fetched product id=${id}`)),
+      catchError(this.handleError<Product>(`getProduct id=${id}`))
+    );
+  }
+
   //error handler
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
