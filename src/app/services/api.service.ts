@@ -46,6 +46,14 @@ export class ApiService {
     );
   }
 
+  deleteProduct(id): Observable<Product> {
+    const url = `${apiGetUrl}/${id}`;
+    return this.http.delete<Product>(url, httpOptions).pipe(
+      tap(_ => console.log(`Delete product id=${id}`)),
+      catchError(this.handleError<Product>('deleteProduct'))
+    );
+  }
+
   //error handler
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
