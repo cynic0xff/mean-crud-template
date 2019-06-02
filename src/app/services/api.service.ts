@@ -54,6 +54,13 @@ export class ApiService {
     );
   }
 
+  addProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(apiGetUrl, product, httpOptions).pipe(
+      tap((product: Product) => console.log(`Added product id ${product.id}`)),
+      catchError(this.handleError<Product>('addProduct'))
+    );
+  }
+
   //error handler
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
