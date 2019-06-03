@@ -46,8 +46,7 @@ import {
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatFormFieldModule,
-    MatDialogModule
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
