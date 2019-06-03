@@ -20,11 +20,12 @@ export class ProductAddComponent implements OnInit {
   constructor(private api: ApiService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    console.log('Product add here');
+
     this.productForm = this.formBuilder.group({
       'prod_name': [null, Validators.required],
       'prod_desc': [null, Validators.required],
-      'prod_price': [null, Validators.required],
-      'updated_at': [null, Validators.required]
+      'prod_price': [null, Validators.required]
     });
   }
 
@@ -34,7 +35,7 @@ export class ProductAddComponent implements OnInit {
     .subscribe(res => {
       let id = res['id'];
       this.isLoading = false;
-      this.router.navigate(['/product-details'. id]);
+      this.router.navigate(['/product-details', id]);
     }, (err) => {
       console.error(err);
       this.isLoading = false;
