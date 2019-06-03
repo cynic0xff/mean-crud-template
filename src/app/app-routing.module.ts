@@ -28,11 +28,6 @@ const routes: Routes = [
     data: { title: 'Edit product'}
   },
   {
-    path: 'test',
-    component: ProductAddComponent,
-    data: { title: 'Test'}
-  },
-  {
     path: '',
     redirectTo: '/products',
     pathMatch: 'full'
